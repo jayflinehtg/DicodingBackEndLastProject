@@ -21,8 +21,8 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm use 22
-            cd ~/forum-api-starter-project
+            cd ~/DicodingBackEndLastProject
             git pull origin main
             npm install
             npm run migrate up
-            pm2 restart forum-api
+            pm2 restart app
