@@ -28,7 +28,7 @@ server {
 
         server_name curvy-laws-worry-freely.a276.dcdg.xyz www.curvy-laws-worry-freely.a276.dcdg.xyz;
 
-        # Lokasi ini akan menangani semua permintaan umum, 
+        # Lokasi ini akan menangani semua permintaan umum,
         # termasuk /threads/{id}, /threads/{id}/comments, dll.
         # Tidak ada rate limit spesifik di sini.
         location / {
@@ -41,9 +41,9 @@ server {
         }
 
         location = /threads { # Menggunakan '=' untuk pencocokan eksak
-                limit_req zone=threads_zone burst=20 nodelay; # Menggunakan burst=20 seperti di konfigurasi Anda
+                limit_req zone=threads_zone;
                 limit_req_status 429;
-                
+
                 proxy_pass http://localhost:5000; # your app's port
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
